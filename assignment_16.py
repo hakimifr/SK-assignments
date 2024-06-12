@@ -3,10 +3,14 @@
 foods: list[str] = ["spaghetti", "pizza", "burger", "makaroni"]
 
 for i, food in enumerate(foods):
-    print(f"{i}. {food.strip().capitalize()}")
+    print(f"{i+1}. {food.strip().capitalize()}")
 
-choice: str = input("Please choose your menu: ")
-if choice.lower() in foods:
-    print(f"You have ordered {choice.capitalize()}")
+try:
+    choice: int = int(input("Please choose your menu: ").strip())
+except ValueError:
+    raise ValueError("Not a number!")
+
+if not 0 < choice <= len(foods):
+    print("You didn't key in correct number")
 else:
-    raise ValueError("Invalid food selected!")
+    print(f"You have ordered {foods[choice-1]}")

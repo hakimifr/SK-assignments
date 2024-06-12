@@ -6,8 +6,12 @@ print("Available cars are:")
 for i, car in enumerate(cars):
     print(f"{i+1}. {car}")
 
-choice: str = input("Choose a car: ")
-if choice.strip() not in cars:
-    raise ValueError("Invalid car chosen!")
+try:
+    choice: int = int(input("Choose a car: ").strip())
+except ValueError:
+    raise ValueError("Invalid choice number")
 
-print(f"My favourite car brand is: {choice.strip()}")
+if not 0 < choice <= len(cars):
+    print("You didn't key in correct number")
+else:
+    print(f"My favourite car brand is {cars[choice-1]}")
