@@ -10,6 +10,6 @@ clubs: dict[str, str] = {
 choice: str = input("Choose a club: ").strip().upper()
 
 if choice in clubs.keys():
-    print(clubs[choice])
+    print(f"You are taking {clubs[choice]}")
 else:
     print("You are not taking any club")

@@ -7,8 +7,8 @@ diploma_program: dict[str, str] = {
     "G": "Diploma in Management Technology"
 }
 
-choice: str = input("Please choose a diploma program: ")
-if choice.strip().upper() in diploma_program.keys():
-    print(f"You are enrolled in {diploma_program[choice.strip().upper()]}")
+choice: str = input("Please choose a diploma program: ").strip().upper()
+if choice in diploma_program.keys():
+    print(f"You are enrolled in {diploma_program[choice]}")
 else:
     print("You are not taking any diploma program")
